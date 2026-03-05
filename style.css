@@ -1,1 +1,105 @@
-/* Add styles here */
+
+:root {
+    --bg-color-start: #1e1e1e;
+    --bg-color-end: #2d2d2d;
+    --text-color: #ffffff;
+    --accent-color: #ff9800;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    --number-bg-color: rgba(255, 255, 255, 0.1);
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(45deg, var(--bg-color-start), var(--bg-color-end));
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-size: 200% 200%;
+    animation: gradient-animation 10s ease infinite;
+}
+
+@keyframes gradient-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.container {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px var(--shadow-color);
+    backdrop-filter: blur(10px);
+}
+
+h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    text-shadow: 0 5px 15px var(--shadow-color);
+}
+
+.lotto-numbers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0;
+}
+
+.number-container {
+    display: flex;
+    gap: 15px;
+}
+
+.number-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--number-bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8em;
+    font-weight: bold;
+    color: var(--text-color);
+    box-shadow: 0 8px 15px var(--shadow-color);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    transform: scale(0);
+    animation: pop-in 0.5s forwards;
+}
+
+@keyframes pop-in {
+    to {
+        transform: scale(1);
+    }
+}
+
+#generate-btn {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#generate-btn:hover {
+    background-color: #ffb74d;
+    transform: translateY(-3px);
+}
+
+#generate-btn:active {
+    transform: translateY(1px);
+}
+
+.color-1 { background: #F44336; } /* Red */
+.color-2 { background: #FFC107; } /* Amber */
+.color-3 { background: #4CAF50; } /* Green */
+.color-4 { background: #2196F3; } /* Blue */
+.color-5 { background: #9C27B0; } /* Purple */
