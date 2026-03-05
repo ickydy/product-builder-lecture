@@ -24,10 +24,12 @@ body {
     background: linear-gradient(45deg, var(--bg-color-start), var(--bg-color-end));
     color: var(--text-color);
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
     min-height: 100vh;
     margin: 0;
+    padding: 60px 20px;
     background-size: 200% 200%;
     animation: gradient-animation 10s ease infinite;
     transition: background 0.3s ease, color 0.3s ease;
@@ -47,6 +49,62 @@ body {
     box-shadow: 0 15px 30px var(--shadow-color);
     backdrop-filter: blur(10px);
     transition: background 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 30px;
+}
+
+.contact-container {
+    text-align: left;
+}
+
+.contact-container h2 {
+    text-align: center;
+    margin-top: 0;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid var(--text-color);
+    background: var(--number-bg-color);
+    color: var(--text-color);
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+.form-group textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.submit-btn {
+    width: 100%;
+    background-color: var(--accent-color);
+    color: #fff;
+    border: none;
+    padding: 15px;
+    font-size: 1.1em;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #ffb74d;
+    transform: translateY(-2px);
 }
 
 h1 {
