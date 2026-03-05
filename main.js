@@ -19,41 +19,35 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('theme', isLight ? 'light' : 'dark');
     });
 
-    // Lotto logic
+    // Menu logic
+    const menus = [
+        "김치찌개", "된장찌개", "부대찌개", "제육볶음", "삼겹살",
+        "치킨", "피자", "짜장면", "짬뽕", "탕수육",
+        "돈까스", "제육덮밥", "비빔밥", "불고기", "보쌈",
+        "족발", "떡볶이", "순대", "칼국수", "수제비",
+        "냉면", "마라탕", "쌀국수", "초밥", "육회비빔밥"
+    ];
+
     generateBtn.addEventListener('click', () => {
-        const numbers = generateLottoNumbers();
-        displayNumbers(numbers);
+        const randomMenu = menus[Math.floor(Math.random() * menus.length)];
+        displayMenu(randomMenu);
     });
 
-    function generateLottoNumbers() {
-        const numbers = new Set();
-        while (numbers.size < 6) {
-            numbers.add(Math.floor(Math.random() * 45) + 1);
-        }
-        return Array.from(numbers).sort((a, b) => a - b);
-    }
-
-    function displayNumbers(numbers) {
+    function displayMenu(menuName) {
         numberContainer.innerHTML = '';
-        numbers.forEach((number, index) => {
-            const circle = document.createElement('div');
-            circle.classList.add('number-circle');
-            circle.textContent = number;
-            circle.style.animationDelay = `${index * 0.1}s`;
-
-            if (number <= 10) {
-                circle.classList.add('color-1');
-            } else if (number <= 20) {
-                circle.classList.add('color-2');
-            } else if (number <= 30) {
-                circle.classList.add('color-3');
-            } else if (number <= 40) {
-                circle.classList.add('color-4');
-            } else {
-                circle.classList.add('color-5');
-            }
-
-            numberContainer.appendChild(circle);
-        });
+        const badge = document.createElement('div');
+        badge.classList.add('number-circle'); // Reusing class for animation
+        badge.style.width = 'auto';
+        badge.style.height = 'auto';
+        badge.style.padding = '15px 40px';
+        badge.style.borderRadius = '30px';
+        badge.style.fontSize = '2.2em';
+        badge.textContent = menuName;
+        
+        // Random color
+        const colors = ['#F44336', '#FFC107', '#4CAF50', '#2196F3', '#9C27B0'];
+        badge.style.background = colors[Math.floor(Math.random() * colors.length)];
+        
+        numberContainer.appendChild(badge);
     }
 });

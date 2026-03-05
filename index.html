@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lotto Number Generator</title>
+    <title>오늘의 저녁 메뉴 추천</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,27 +12,43 @@
         <button id="theme-btn">Switch to Light Mode</button>
     </div>
     <div class="container">
-        <h1>Lotto Number Generator</h1>
+        <h1>오늘 뭐 먹지?</h1>
+        <p>결정하기 힘든 저녁 메뉴, 골라드릴게요!</p>
         <div class="lotto-numbers">
             <div class="number-container"></div>
         </div>
-        <button id="generate-btn">Generate Numbers</button>
+        <button id="generate-btn">메뉴 추천받기</button>
     </div>
 
     <div class="container contact-container">
-        <h2>Affiliate Inquiry</h2>
+        <h2>제휴 및 협업 문의</h2>
         <form action="https://formspree.io/f/maqpweae" method="POST" id="contact-form">
             <div class="form-group">
-                <label for="email">Your Email:</label>
+                <label for="email">이메일 주소:</label>
                 <input type="email" name="email" id="email" required placeholder="example@email.com">
             </div>
             <div class="form-group">
-                <label for="message">Message:</label>
-                <textarea name="message" id="message" required placeholder="How can we collaborate?"></textarea>
+                <label for="message">문의 내용:</label>
+                <textarea name="message" id="message" required placeholder="협업 제안 내용을 입력해주세요."></textarea>
             </div>
-            <button type="submit" class="submit-btn">Send Inquiry</button>
+            <button type="submit" class="submit-btn">문의 보내기</button>
         </form>
     </div>
+
+    <div class="container contact-container">
+        <h2>댓글 및 후기</h2>
+        <div id="disqus_thread"></div>
+        <script>
+            (function() { 
+            var d = document, s = d.createElement('script');
+            s.src = 'https://productbuilder-ea4u9iszi4.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
     <script src="main.js"></script>
 </body>
 </html>
