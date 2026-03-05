@@ -2,7 +2,24 @@
 document.addEventListener('DOMContentLoaded', () => {
     const generateBtn = document.getElementById('generate-btn');
     const numberContainer = document.querySelector('.number-container');
+    const themeBtn = document.getElementById('theme-btn');
+    const body = document.body;
 
+    // Theme logic
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+        body.classList.add('light-mode');
+        themeBtn.textContent = 'Switch to Dark Mode';
+    }
+
+    themeBtn.addEventListener('click', () => {
+        body.classList.toggle('light-mode');
+        const isLight = body.classList.contains('light-mode');
+        themeBtn.textContent = isLight ? 'Switch to Dark Mode' : 'Switch to Light Mode';
+        localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    });
+
+    // Lotto logic
     generateBtn.addEventListener('click', () => {
         const numbers = generateLottoNumbers();
         displayNumbers(numbers);
